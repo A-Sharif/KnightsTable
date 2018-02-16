@@ -1,0 +1,142 @@
+Note from professor: ---------------------------------------------------------------------------------------------------------
+First, for Tuesday's report (the 23rd), you are aiming to have a list of 'features' (what I call micro-functional requirements,
+as will be discussed in class)
+
+AND a list of scenarios that 'cover' these features (ie test them at least minimally).
+This constitutes your target list of reqs for Iteration 1 (also called this Sprint's backlog).
+NO CODING IS EXPECTED  for the 23rd but you should set up your Github repository.
+
+One key objective of this first report is to have you experience how to 'adjust' the level of abstraction you deliver
+for the scenarios based on the time you have. That is, the more time, the more detailed your scenarios could be,
+down to specifying actual cards to play... You probably do NOT have enough time to get down to that level for the 23rd.
+So you need to be more abstract, as I have suggested: state what you want to test and do not get in the how to test it
+unless you really have the time. It is better to have a complete more abstract list of reqs than a detailed but incomplete one.
+Note from Professor ends. ----------------------------------------------------------------------------------------------------
+
+List of Features:
+1. Weapon
+2. Foes
+3. Quests
+4. Events
+5. Tests
+6. Tournaments
+
+
+Ethann's Scenarios:
+3. Quests
+     a) Going through a quest normally: (eg: first player sponsors)
+       i) Set-up
+       - At the beginning ensure correct distribution and amount of Quest cards in the adventure deck
+       - Rig deck to spawn the quest wanting to test first, second, third .. etc
+       - Rig the sponsor of the Quest's hand to have the foe matching the Quest name to test the right Battle Points mechanic
+       - Rig the participants of the Quest's hands to have at least one hand that will fail (to test losing condition)
+       - Rig the participants of the Quest's hands to have at least one one hand that will win (to test winning condition)
+       - Rig the player with the "win hand" to have 9 shields, so victory of the game is tested the winning condition
+       - Rig the other winning players to have the other 'boundary' shield amounts that result in rank increases EX: 4->5, 6-7
+      ii) Starting quest
+       - Check to be sure that the sponsor cannot place more or less Foes/Tests/Weapons then the Quest has placeholders (must be exact)
+       - Check to be sure only one For or Test card can be played during each stage of the Quest (this is tested by trying to add inappropraite cards to the Quest queue)
+       - Check to be sure that the amount of battle points is greater in the subsequent stages (test cards are exempt)
+       - Check to be sure Battle Points follow rules describe in Eva's 2C
+       - Check to be sure only one test card may be played per quest
+      iii) Playing the quest (NO TEST/BIDS YET)
+       - Check to be sure that every players hand has increased by one at the start of the Quest due to being dealt one more card
+       - Make sure that all players who participate fight the Foe
+       - Test to be sure the participants do not see the Foe until after they decide what cards to use
+       - Test to be sure the cards played follow the rules described in Eva's 1C and 2C
+       - Test to be sure the participant with the greater or equal Battle Points that the Foe progresses to the next stage and that players hand increases by one
+       - Test to be sure the participants with less Battle Points loses and does not progress to the next stage
+      iv) Finishing the quest
+       - To test the two conditions there will need to be at least two-run throughs because the two Quest ending conditions are mutually exclusive
+       - Will need one where all the participants lose
+       - Will need another where one or more players make it through all of the stages of the Quest
+       - Test to be sure that the successful participant(s) receive shields equal to the number of stages in the Quest
+       - Test to be sure that the unsuccessful participant(s) do not receive any shields
+       - Ensure the discarding of cards follow the rules describe in Eva's 1C and 2C
+     b) Going through a quest irregular: (eg: noone sponsors, or non-first player sponsors)
+       - When the player who has revealed the quest denies sponsorship, ensure that it is the player on the left whom receives the opportunity next
+       - Ensure that the Quest proceeds normally as described in a) i) -> iv) even though it is not that persons turn
+       - When noone wants to sponsor ensure that the discard pile has gone up by one and is infact the right card in there
+       
+4. Events
+     i) set-up
+       - Rig the story deck so that the event cards you want to demo/test come up in sequence
+       - Rig the players hands to have allies to test Court Called to Camelot
+       - Rig players shield/rank amounts in a way that some vary and some tie to account for Chivalrous Deed, Queen's favor, King's Call to Arms and Prosperity throughout the realm
+       
+     Chivalrous Deed: 
+       - Ensure that all players of the lowest rank receive 3 shields
+       - Ensure that all players with the lowers amount of shields receive 3 shields
+     Pox
+       - Ensure that all other players lose a shield
+       - Ensure that the person drawing the card has the same number of shields as before the event took place
+     Plague
+       - Ensure that the person drawing the card loses 2 shields, or 1 if that person only had 1 to begin with
+       - Ensure that other players shield amounts are not effected
+     King's Recognition
+       - Ensure that the after this event has surfaced, that only the for the next ONE quest will successful participants receive 2 extra shields
+       - Ensure that the un-successful particpants are not getting those 2 extra shields
+     Queen's Favor
+       - Ensure that all the lowest rank players receive 2 adventure cards drawn from the adventure deck
+       - Ensure that the number of cards removed from the adventure deck is (2*numOfLowestRankedPlayers)
+       - Ensure that the lowers ranked players are in fact receiving those two cards by checking hand size
+     Court Called to Camelot
+       - Ensure that after this event surfaces that all current Allies are discarded
+     King's call to arms
+       - Ensure that  it is only the highest ranked players that are forced into the discarding circumstance
+       - Ensure that the players of lower ranks are not effected
+     Prosperity throughout the realm
+       - Ensure that all players have received 2 cards from the adventure deck
+       - Examine all hands move up in 2 size and the deck move down in (2*numOfPlayers)
+       
+Eva's Scenarios:
+  1. Weapon
+          * Observe that in each Quest participant's hands, the weapon cards they played in this stage is removed
+     a) At game set up, make sure the number of Weapon cards is correct, and they are spread randomly in the Adventure deck.
+        - prints the Adventure deck info into a log file
+        - count the number of Weapon cards (49)
+        - count the number of cards for each Weapon type
+        - observe to make sure Weapons are spread randomly in the deck
+     b) When a player draws a Weapon card from Adventure deck at his turn, the card is being removed from the deck,
+        and adds to the player's hand respectively
+     c) Quest
+        - when a Weapon card is played, the battle points should increase by the number shown on the Weapon card
+        - A player cannot play two Weapon cards of the same type at the same time
+        - A player can play at most 6 Weapon cards (as in 6 weapon type) at one time
+        - When a quest stage finishes, Weapon cards should be discarded
+          * Observe that in each Quest participant's hands, the Weapon cards they played in this stage is removed
+          * Observe that in Discarded Adventure deck, the number of cards increases by the number of discarded cards from
+            all players in this stage, and the card types are correct
+     d) Tournament
+        - when a Weapon card is played, the battle points should increase by the number shown on the Weapon card
+        - A player cannot play two Weapon cards of the same type at the same time
+        - A player can play at most 6 Weapon cards (as in 6 weapon type) at one time
+        - When a tournament ends, the Weapon cards remain each player's hand
+        - The players in a tie discard the Weapon cards just played
+          * Observe that in each tied player's hands, the Weapon cards they just played is removed
+          * Observe that in Discarded Adventure deck, the number of cards increases by the number of discarded cards from
+            all tied player, and the card types are correct
+
+  2. Foe
+     a) At game set up, make sure the number of Foe cards is correct, and they are spread randomly in the Adventure deck.
+        - prints the Adventure deck info into a log file
+        - count the number of Foe cards (50)
+        - count the number of cards for each Foe type
+        - observe to make sure weapons are spread randomly in the deck
+     b) When a player draws a Foe card from Adventure deck at his turn, the card is being removed from the deck,
+        and adds to the player's hand respectively
+     c) Quest
+        - Each stage can only have 1 Foe card, test by playing two Foe cards at the same stage (the second card should not be played)
+        - When a Foe card is played, the battle points should increase by the number shown on the Foe card accordingly
+          * If the Foe is named on the Quest Card in play, use the higher battle points; otherwise use the lower
+          * Test of the Green Knight Quest: Green Knight Foe vs other Foe
+          * Slay the Dragon Quest: Dragon Foe vs other Foe
+          * Boar Hunt Quest: Boar Foe vs other Foe
+      d) "Mordred" Foe Card
+         - Test its use as a normal For in a Quest stage
+         - Test its ability to remove another player's Ally from play
+           * card has to be played during the player's turn during a normal game sequence
+           * card can be played at any time if the player is participating in a Quest or Tournament
+             ** Test the situation where Player A plays a Mordred Foe in a Quest stage as soon as Player B plays an Ally Card,
+                even though Player A's turn has passed
+           * When the Ally card being removed from the player's hand, and put into the discard pile, remove Mordred Foe to the discard pile as well

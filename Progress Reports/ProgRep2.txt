@@ -1,0 +1,33 @@
+Team 77 WK 2
+January 30th, 2018
+TA: Amir AmirAghasharif@cmail.carleton.ca
+Team member: Sam Wong, Ethann Yakabuski, Eva Yang
+
+1) this week our team has NO issues to report in terms of participation, contributions, distribution of work
+
+2) Table of Features
+F1 can create RankDeck at game set up            completed    T1   Jan 29 11PM
+F2 can create a deck of cards at game set up     completed    T2  Jan 29 11PM
+F3 can create a GUI and populate images to it    completed    T3  Jan 27 11PM  
+F4 started creating adventure deck, Foe has proper distributions  completed  T4   Jan 29 2PM   
+
+F10 can create AdventureDeck    planned
+F11 can create StoryDeck        planned
+F12 can add up battle points for all cards a player plays    planned
+F13 can have the players draw and display their first hand on GUI    planned
+F14 can have the players along with the other needed info displayed on GUI (shield amount/shield icon/rank icon) planned
+F15 can have the the first active player draw from story deck and take their first turn    planned
+F16 can have the game starts and setup       planned
+F17 can have each player plays their turn    planned
+
+3) Table of Tests
+T1  test creating 4 cards for each rack at game set up       Jan 29 11PM
+T2  test shuffling a deck of card                            Jan 29 11PM
+T3  test GUI to see if a card can populate to screen         Jan 27 11PM   
+T4  test Adventure deck to ensure proper distribution        Jan 29 2PM    
+
+
+4) For each member
+Ethann: 6 hours, setting up environment and GUI.java work, F3 & F4, planning to tackle F13, F14, F15
+Sam: 3 hours, configuring environment, planning to tackle F16, F17
+Eva: 5 hour, F1 & F2, plan to tackle F10 & F11 & F12
