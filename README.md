@@ -1,3 +1,8 @@
+Team 71
+
+
+
+
 Quests77
 Quests of the Round Table Project
 You will need to place the cropped images from the gentleman on CUlearn into a folder in the project directory in your eclipse to have the code working with the proper images. I also snipped a blank white image to use for temporary GUI testing purposes.
